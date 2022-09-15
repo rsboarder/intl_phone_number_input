@@ -10,6 +10,7 @@ class Item extends StatelessWidget {
   final TextStyle? textStyle;
   final bool withCountryNames;
   final double? leadingPadding;
+  final double? trailingPadding;
   final bool trailingSpace;
 
   const Item({
@@ -20,6 +21,7 @@ class Item extends StatelessWidget {
     this.textStyle,
     this.withCountryNames = false,
     this.leadingPadding = 12,
+    this.trailingPadding = 12,
     this.trailingSpace = true,
   }) : super(key: key);
 
@@ -40,7 +42,7 @@ class Item extends StatelessWidget {
             showFlag: showFlag,
             useEmoji: useEmoji,
           ),
-          SizedBox(width: 12.0),
+          SizedBox(width: trailingPadding),
           Text(
             '$dialCode',
             textDirection: TextDirection.ltr,
@@ -71,7 +73,7 @@ class _Flag extends StatelessWidget {
                   )
                 : Image.asset(
                     country!.flagUri,
-                    width: 32.0,
+                    width: 24,
                     package: 'intl_phone_number_input',
                     errorBuilder: (context, error, stackTrace) {
                       return SizedBox.shrink();
