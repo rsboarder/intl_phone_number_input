@@ -226,17 +226,22 @@ class DirectionalCountryListTile extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 16),
         height: 56,
         child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             _Flag(country: country, useEmoji: useEmoji),
             SizedBox(width: 16),
-            Text(
-              '${Utils.getCountryName(country, locale)}',
-              style: GoogleFonts.inter(
-                fontSize: 16,
-                color: Color.fromRGBO(43, 52, 80, 1),
+            Expanded(
+              flex: 1,
+              child: Text(
+                '${Utils.getCountryName(country, locale)}',
+                style: GoogleFonts.inter(
+                  fontSize: 16,
+                  color: Color.fromRGBO(43, 52, 80, 1),
+                ),
+                overflow: TextOverflow.ellipsis,
               ),
             ),
-            Spacer(),
+            SizedBox(width: 16),
             Text(
               '${country.dialCode ?? ''}',
               style: GoogleFonts.inter(
